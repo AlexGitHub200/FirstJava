@@ -20,11 +20,12 @@ public class CalculateJava8 {
         //potential.stream().map
 
         List <Coordination> coordinationList = potential.stream().map((List <Integer> n) -> {
-                    counter.getAndIncrement();
+
                     List <Coordination> listpoint = new ArrayList <>();
                     for (int y : n) {
                         listpoint.add(new Coordination(counter.get(), y));
                     }
+                counter.getAndIncrement();
                     return listpoint;
                 }
 
@@ -40,6 +41,7 @@ public class CalculateJava8 {
 //        ).sorted(byDistance).limit(maxplaces).collect(Collectors.toList());
 
         coordinationList.size();
+        coordinationList.forEach(System.out::println);
 
         return null;
     }
@@ -60,6 +62,11 @@ public class CalculateJava8 {
 
         public int getY() {
             return y;
+        }
+
+        @Override
+        public String toString() {
+            return "["+x+","+y+"]";
         }
     }
 }
