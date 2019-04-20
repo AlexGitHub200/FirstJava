@@ -29,7 +29,7 @@ public class CalculateJava8 {
                     return listpoint;
                 }
 
-        ).flatMap(n -> n.stream()).sorted(byDistance).collect(Collectors.toList());
+        ).flatMap(n -> n.stream()).sorted(byDistance).limit(maxplaces).collect(Collectors.toList());
 
 
 //        List <Coordination> coordinationList = potential.stream().flatMap(n -> n.stream()).map(n ->
@@ -42,8 +42,29 @@ public class CalculateJava8 {
 
         coordinationList.size();
         coordinationList.forEach(System.out::println);
+        List <List <Integer>> returnPointsLists = new ArrayList <>();
+        for (int i = 0; i < potential.size(); i++) {
+            returnPointsLists.add(null);
+        }
+       // returnPointsLists.set(1,new ArrayList <Integer>());
+        for(Coordination points:coordinationList){
+            List list = getList(returnPointsLists, points.getX());
+            list.add(points.getY());
+            returnPointsLists.set( points.getX(),list);
 
-        return null;
+        }
+
+
+
+        return returnPointsLists;
+    }
+
+    private List getList(List<List <Integer>> list, int index){
+
+        if(list.get(index)==null)
+            return new ArrayList();
+        else
+            return list.get(index);
     }
 
 

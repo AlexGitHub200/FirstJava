@@ -1,0 +1,1 @@
+In this test you need to sort coordinates in a list of Lists data structure, based on distance between them.

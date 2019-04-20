@@ -23,7 +23,11 @@ public class CalculateDistanceExam {
 
         List <List <Integer>> lists = new CalculateDistanceExam().returnPlaces(3, all);
        // lists.size();
-     // List <List <Integer>> lists = new CalculateJava8().returnPlaces(3, all);
+      List <List <Integer>> lists2 =
+        new CalculateJava8().returnPlaces(3, all);
+      lists.stream().forEach(System.out::println);
+      lists2.stream().forEach(System.out::println);
+
 
     }
 
